@@ -1,9 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  entry: './app/index.js',
+  entry: {
+    helloworld: './app/hello-world',
+  },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.bundle.js'
+    filename: '[name].js',
+    path: __dirname + '/dist/api'
   }
 };

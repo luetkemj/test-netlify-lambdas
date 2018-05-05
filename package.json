@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack app/index.js",
+    "build": "./node_modules/.bin/webpack --config webpack.config.js",
     "netlify-build": "netlify-lambda build ./app",
     "netlify-serve": "netlify-lambda serve ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
