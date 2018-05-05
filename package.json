@@ -6,7 +6,8 @@
   "scripts": {
     "copy": "cp lambda-src/helloworld.js lambda/helloworld.js",
     "lambda-serve": "npm run copy && netlify-lambda serve lambda",
-    "build": "NODE_ENV=production webpack --config './webpack.config.js' && npm run copy && netlify-lambda build lambda"
+    "build": "NODE_ENV=production webpack --config './webpack.config.js' && npm run copy && netlify-lambda build lambda",
+    "build-netlify": "NODE_ENV=production webpack --config './webpack.config.js' && cp -r lambda-src dist/lambda"
   },
   "author": "",
   "license": "ISC",
