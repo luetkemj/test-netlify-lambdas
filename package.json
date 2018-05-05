@@ -4,8 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack app/index.js",
+    "netlify-build": "netlify-lambda build ./app",
+    "netlify-serve": "netlify-lambda serve ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "netlify-lambda": "^0.4.0",
+    "webpack": "^4.7.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.1.2"
+  }
 }
