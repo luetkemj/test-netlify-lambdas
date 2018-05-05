@@ -1,21 +1,10 @@
 {
   "name": "netlify-lambdas",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "copy": "cp lambda-src/helloworld.js lambda/helloworld.js",
-    "lambda-serve": "npm run copy && netlify-lambda serve lambda",
-    "build": "NODE_ENV=production webpack --config './webpack.config.js' && npm run copy && netlify-lambda build lambda",
-    "build-netlify": "NODE_ENV=production webpack --config './webpack.config.js' && cp -r lambda-src dist/lambda"
-  },
+  "description": "As simple as possible.",
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "netlify-lambda": "^0.4.0",
-    "webpack": "^4.7.0"
-  },
-  "devDependencies": {
-    "webpack-cli": "^2.1.2"
+  "scripts": {
+    "build": "cp -r src dist"
   }
 }
