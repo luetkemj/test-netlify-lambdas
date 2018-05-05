@@ -1,5 +1,4 @@
 [build]
-# This is the directory that you are publishing from (relative to root of your repo)
-  publish = "./dist"
-# This is where we will look for your lambda functions
-  functions = "./dist/api"
+  command = "npm run build"
+  publish = "dist"
+  functions = "lambda-src"

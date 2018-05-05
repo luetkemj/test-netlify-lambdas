@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    helloworld: './app/hello-world',
+    helloworld: './app/helloworld',
   },
   output: {
     filename: '[name].js',
-    path: __dirname + '/dist/api'
+    path: __dirname + '/dist'
   }
 };
