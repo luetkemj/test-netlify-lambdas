@@ -1,10 +1,19 @@
 {
   "name": "netlify-lambdas",
   "version": "1.0.0",
-  "description": "As simple as possible.",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && cp -r src dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luetkemj/test-netlify-lambdas.git"
+  },
   "author": "",
   "license": "ISC",
-  "scripts": {
-    "build": "cp -r src dist"
-  }
+  "bugs": {
+    "url": "https://github.com/luetkemj/test-netlify-lambdas/issues"
+  },
+  "homepage": "https://github.com/luetkemj/test-netlify-lambdas#readme"
 }
