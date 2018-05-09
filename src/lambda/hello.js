@@ -1,9 +1,9 @@
 exports.handler = function(event, context, callback) {
     callback(null, {
       statusCode: 200,
-      body: {
-        envVars: BUTTER,
+      body: JSON.stringigy({
+        envVars: process.env.BUTTER,
         hello: 'world',
-      },
+      }),
     });
 }
