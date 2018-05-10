@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && cp -r src dist"
+    "build": "rm -rf dist && rm -rf functions && cp -r src/functions functions && mkdir dist"
   },
   "repository": {
     "type": "git",
