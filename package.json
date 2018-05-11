@@ -5,13 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build:app": "babel src/app -d deploy/dist",
-    "build:functions": "webpack --config ./webpack.config.js",
-    "build:lambdas": "babel src/functions -d deploy/functions",
-    "build": "npm run build:app && npm run build:functions",
+    "build": "npm run build:app && npm run lambdas:build",
     "clean": "rimraf deploy && rimraf dev",
-    "lambdas:build": "npm run lambdas:prebuild & netlify-lambda build dev/lambdas",
-    "lambdas:prebuild": "babel src/functions -d dev/lambdas -w",
-    "lambdas:serve": "netlify-lambda serve dev/lambdas",
+    "lambdas:build": "netlify-lambda build src/functions",
+    "lambdas:serve": "netlify-lambda serve src/functions",
     "lambdas": "npm run lambdas:build && npm run lambdas:serve",
     "package": "webpack --config ./webpack.config.js"
   },
