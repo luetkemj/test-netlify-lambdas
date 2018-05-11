@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'none',
   entry: {
     hello: './src/functions/hello.js',
     jwt: './src/functions/jwt.js',
