@@ -6,10 +6,11 @@
   "scripts": {
     "build:app": "./node_modules/.bin/babel src/app -d deploy/dist",
     "build:functions": "./node_modules/.bin/babel src/functions -d deploy/functions",
+    "build:functions:watch": "./node_modules/.bin/babel src/functions -d deploy/functions -w",
     "build": "npm run build:app && npm run build:functions",
     "clean": "./node_modules/.bin/rimraf deploy && ./node_modules/.bin/rimraf dev",
-    "lambdas:build": "npm run lambdas:prebuild && netlify-lambda build dev/lambdas",
-    "lambdas:prebuild": "rimraf dev && mkdir dev && cp -r src/functions dev/lambdas",
+    "lambdas:build": "npm run lambdas:prebuild & netlify-lambda build dev/lambdas",
+    "lambdas:prebuild": "./node_modules/.bin/babel src/functions -d dev/lambdas -w",
     "lambdas:serve": "netlify-lambda serve dev/lambdas",
     "lambdas": "npm run lambdas:build && npm run lambdas:serve"
   },
@@ -24,12 +25,12 @@
   },
   "homepage": "https://github.com/luetkemj/test-netlify-lambdas#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "netlify-lambda": "^0.4.0",
-    "rimraf": "^2.6.2"
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.7.0",
+    "netlify-lambda": "0.4.0",
+    "rimraf": "2.6.2"
   },
   "dependencies": {
-    "jsonwebtoken": "^8.2.1"
+    "jsonwebtoken": "8.2.1"
   }
 }
