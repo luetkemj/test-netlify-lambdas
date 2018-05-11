@@ -1,3 +1,4 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path');
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|deploy|test)/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -23,5 +24,12 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        mangle: false,
+      }
+    }),
+  ],
 }

@@ -6,9 +6,7 @@
   "scripts": {
     "build:app": "babel src/app -d deploy/dist",
     "build:functions": "webpack --config ./webpack.config.js",
-
     "build:lambdas": "babel src/functions -d deploy/functions",
-
     "build": "npm run build:app && npm run build:functions",
     "clean": "rimraf deploy && rimraf dev",
     "lambdas:build": "npm run lambdas:prebuild & netlify-lambda build dev/lambdas",
@@ -34,6 +32,7 @@
     "babel-preset-env": "^1.7.0",
     "netlify-lambda": "0.4.0",
     "rimraf": "2.6.2",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.8.2",
     "webpack-cli": "^2.1.3"
   },
