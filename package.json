@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:app": "./node_modules/.bin/babel src/app -d dist",
-    "build:functions": "./node_modules/.bin/babel src/functions -d functions",
+    "build:app": "./node_modules/.bin/babel src/app -d deploy/dist",
+    "build:functions": "./node_modules/.bin/babel src/functions -d deploy/functions",
     "build": "npm run build:app && npm run build:functions",
-    "clean": "./node_modules/.bin/rimraf lib",
-    "lambdas:build": "rimraf ./lambdas && cp -r src/functions ./lambdas && netlify-lambda build ./lambdas",
-    "lambdas:serve": "netlify-lambda serve ./lambdas",
+    "clean": "./node_modules/.bin/rimraf deploy && ./node_modules/.bin/rimraf dev",
+    "lambdas:build": "npm run lambdas:prebuild && netlify-lambda build dev/lambdas",
+    "lambdas:prebuild": "rimraf dev && mkdir dev && cp -r src/functions dev/lambdas",
+    "lambdas:serve": "netlify-lambda serve dev/lambdas",
     "lambdas": "npm run lambdas:build && npm run lambdas:serve"
   },
   "repository": {
