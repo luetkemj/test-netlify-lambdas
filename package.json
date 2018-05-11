@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && rm -rf functions && cp -r src/functions functions && mkdir dist"
+    "build:app": "./node_modules/.bin/babel src/app -d dist",
+    "build:functions": "./node_modules/.bin/babel src/functions -d functions",
+    "build": "npm run build:app && npm run build:functions",
+    "clean": "./node_modules/.bin/rimraf lib",
+    "lambdas:build": "rimraf ./lambdas && cp -r src/functions ./lambdas && netlify-lambda build ./lambdas",
+    "lambdas:serve": "netlify-lambda serve ./lambdas",
+    "lambdas": "npm run lambdas:build && npm run lambdas:serve"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/luetkemj/test-netlify-lambdas/issues"
   },
-  "homepage": "https://github.com/luetkemj/test-netlify-lambdas#readme"
+  "homepage": "https://github.com/luetkemj/test-netlify-lambdas#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "netlify-lambda": "^0.4.0",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.2.1"
+  }
 }
