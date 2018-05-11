@@ -2,11 +2,12 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: [
-    './src/functions/hello.js',
-    './src/functions/jwt.js',
-  ],
+  entry: {
+    hello: './src/functions/hello.js',
+    jwt: './src/functions/jwt.js',
+  },
   output: {
-    filename: 'deploy/[name].js',
+    path: path.resolve(__dirname, 'deploy'),
+    filename: 'functions/[name].js',
   }
 }
