@@ -5,13 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build:app": "babel src/app -d deploy/dist",
-
     "build:functions": "webpack --config ./webpack.config.js",
-
     "build": "npm run build:app && npm run build:functions",
-
     "clean": "rimraf deploy && rimraf dev",
-
     "lambdas:build": "npm run lambdas:prebuild & netlify-lambda build dev/lambdas",
     "lambdas:prebuild": "babel src/functions -d dev/lambdas -w",
     "lambdas:serve": "netlify-lambda serve dev/lambdas",
@@ -30,7 +26,9 @@
   "homepage": "https://github.com/luetkemj/test-netlify-lambdas#readme",
   "devDependencies": {
     "babel-cli": "6.26.0",
-    "babel-preset-env": "1.7.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "netlify-lambda": "0.4.0",
     "rimraf": "2.6.2",
     "webpack": "^4.8.2",

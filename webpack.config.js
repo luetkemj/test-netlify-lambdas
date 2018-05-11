@@ -9,5 +9,19 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'deploy'),
     filename: 'functions/[name].js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|deploy|test)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
+      }
+    ]
   }
 }
