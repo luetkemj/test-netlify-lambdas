@@ -1,8 +1,8 @@
 // sign with default (HMAC SHA256)
-import { sign } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 exports.handler = function(event, context, callback) {
-  const token = sign({ foo: 'barder is the best oh boy YEEHA' }, 'SECRET');
+  const token = jwt.sign({ foo: 'barder is the best oh boy YEEHA' }, 'SECRET');
 
   callback(null, {
     statusCode: 200,

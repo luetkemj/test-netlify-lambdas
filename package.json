@@ -6,7 +6,10 @@
   "scripts": {
     "build:app": "babel src/app -d deploy/dist",
     "build:functions": "webpack --config ./webpack.config.js",
-    "build": "npm run build:app && npm run build:functions",
+
+    "build:lambdas": "babel src/functions -d deploy/functions",
+
+    "build": "npm run build:app && npm run build:lambdas",
     "clean": "rimraf deploy && rimraf dev",
     "lambdas:build": "npm run lambdas:prebuild & netlify-lambda build dev/lambdas",
     "lambdas:prebuild": "babel src/functions -d dev/lambdas -w",
