@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "build:app": "babel src/app -d deploy/dist",
-    "build:functions": "babel src/functions -d deploy/functions",
-    "build:functions:watch": "babel src/functions -d deploy/functions -w",
+
+    "build:functions": "webpack --config ./webpack.config.js",
+
     "build": "npm run build:app && npm run build:functions",
+
     "clean": "rimraf deploy && rimraf dev",
+
     "lambdas:build": "npm run lambdas:prebuild & netlify-lambda build dev/lambdas",
     "lambdas:prebuild": "babel src/functions -d dev/lambdas -w",
     "lambdas:serve": "netlify-lambda serve dev/lambdas",
-    "lambdas": "npm run lambdas:build && npm run lambdas:serve"
+    "lambdas": "npm run lambdas:build && npm run lambdas:serve",
+    "package": "webpack --config ./webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +32,9 @@
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.7.0",
     "netlify-lambda": "0.4.0",
-    "rimraf": "2.6.2"
+    "rimraf": "2.6.2",
+    "webpack": "^4.8.2",
+    "webpack-cli": "^2.1.3"
   },
   "dependencies": {
     "jsonwebtoken": "8.2.1"
