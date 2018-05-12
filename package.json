@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build:app": "babel src/app -d deploy/dist",
-    "build": "npm run build:app && npm run lambdas:build",
+    "build": "npm run build:app && npm run functions:build",
     "clean": "rimraf deploy && rimraf dev",
-    "lambdas:build": "netlify-lambda build src/functions",
-    "lambdas:serve": "netlify-lambda serve src/functions",
-    "lambdas": "npm run lambdas:build && npm run lambdas:serve",
-    "package": "webpack --config ./webpack.config.js"
+    "functions:build": "netlify-lambda build src/functions",
+    "functions:serve": "netlify-lambda serve src/functions",
+    "functions": "npm run functions:build && npm run functions:serve"
   },
   "repository": {
     "type": "git",
@@ -24,14 +23,14 @@
   "homepage": "https://github.com/luetkemj/test-netlify-lambdas#readme",
   "devDependencies": {
     "babel-cli": "6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "1.7.0",
     "netlify-lambda": "0.4.0",
     "rimraf": "2.6.2",
-    "uglifyjs-webpack-plugin": "^1.2.5",
-    "webpack": "^4.8.2",
-    "webpack-cli": "^2.1.3"
+    "uglifyjs-webpack-plugin": "1.2.5",
+    "webpack": "4.8.2",
+    "webpack-cli": "2.1.3"
   },
   "dependencies": {
     "jsonwebtoken": "8.2.1"
